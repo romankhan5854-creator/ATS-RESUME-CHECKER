@@ -1,0 +1,51 @@
+# AI Resume ATS Checker
+
+Upload a resume (PDF, DOCX or TXT) and get:
+
+- An overall **ATS score** (0-100) with a category breakdown
+- Strengths, weaknesses and **missing keywords**
+- Prioritized **improvement suggestions**
+- Suggested **bullet rewrites**
+- Optional: paste a job description to check how well the resume matches it
+
+Built with [Streamlit](https://streamlit.io) and the Google Gemini Flash model.
+
+## Run locally
+
+1. Install Python 3.9+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Get a free API key from https://aistudio.google.com/apikey
+4. Set the key and run:
+   ```bash
+   # Windows (PowerShell)
+   $env:GEMINI_API_KEY="your-key"
+   # macOS / Linux
+   export GEMINI_API_KEY="your-key"
+
+   streamlit run app.py
+   ```
+   Or skip step 4's variable and paste the key in the app's sidebar.
+
+## Deploy on Streamlit Community Cloud
+
+1. Push this repo to GitHub (never commit your API key).
+2. Go to https://share.streamlit.io and click **Create app**.
+3. Choose your repository, branch `main` and main file `app.py`.
+4. Open **Advanced settings -> Secrets** and add:
+   ```toml
+   GEMINI_API_KEY = "your-key"
+   ```
+5. Click **Deploy**.
+
+## Changing the model
+
+The model name is set at the top of `app.py` (`PRIMARY_MODEL`). You can also set a
+`GEMINI_MODEL` secret/environment variable. If the primary model fails, the app
+falls back to `gemini-2.5-flash`.
+
+## Privacy
+
+Resume text is sent to Google's Gemini API for analysis. Nothing is stored by the app.
