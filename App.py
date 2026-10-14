@@ -19,8 +19,8 @@ from pypdf import PdfReader
 # ----------------------------------------------------------------------------
 # Change the model name here (or set GEMINI_MODEL in secrets/env) if Google
 # releases a newer Flash model. The fallback is tried if the first one fails.
-PRIMARY_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
-FALLBACK_MODEL = "gemini-2.5-flash"
+PRIMARY_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+FALLBACK_MODEL = "gemini-3.5-flash"
 
 MAX_RESUME_CHARS = 15000
 MAX_JD_CHARS = 6000
